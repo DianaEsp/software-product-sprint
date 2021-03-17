@@ -40,7 +40,7 @@ body {font-family: "Lato", sans-serif}
         <i class="fa fa-envelope" style="width:30px"> </i> Email: dianae2194@gmail.com<br>
       </div>
       <div class="w3-col m6">
-        <form action="mailto:dianae2194@gmail.com" target="_blank">
+        <form action="/form-handler" method="POST">
           <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
             <div class="w3-half">
               <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
@@ -53,6 +53,12 @@ body {font-family: "Lato", sans-serif}
           <button class="w3-button w3-black w3-section w3-right" type="submit">SEND</button>
         </form>
       </div>
+      <form action="/form-handler" method="POST">
+  <p>Enter some text here:</p>
+  <textarea name="text-input">hello world</textarea>
+  <br/>
+  <input type="submit" />
+</form>
     </div>
   </div>
   
