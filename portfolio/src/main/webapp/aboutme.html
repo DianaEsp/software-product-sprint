@@ -11,6 +11,29 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 5px;
 }
 </style>
+<script>
+      function requestTranslation() {
+        const text = document.getElementById('text').value;
+        const languageCode = document.getElementById('language').value;
+
+        const resultContainer = document.getElementById('result');
+        resultContainer.innerText = 'Loading...';
+
+        const params = new URLSearchParams();
+        params.append('text', text);
+        params.append('languageCode', languageCode);
+
+        fetch('/translate', {
+          method: 'POST',
+          body: params
+        }).then(response => response.text())
+        .then((translatedMessage) => {
+          resultContainer.innerText = translatedMessage;
+        });
+      }
+    </script>
+
+<script src="script.js"></script>
 <body>
 
 <!-- Navbar -->
@@ -41,10 +64,31 @@ h1, h2, h3, h4, h5, h6 {
       <p class="w3-large">NAME &nbsp; &nbsp;<span class="w3-large w3-text-grey">Diana Espindola</span></p>
       <p class="w3-large">EMAIL &nbsp; &nbsp;<span class="w3-large w3-text-grey">dianae2194@gmail.com</span></p>
       <p class="w3-large">LOCATION &nbsp; &nbsp;<span class="w3-large w3-text-grey">Miami Beach, FL</span></p>
-      <p class="w3-large w3-text-grey w3-hide-medium">Insert paragraph here.</p>
+      <p class="w3-large w3-text-grey w3-hide-medium"></p>
+    <button onclick="message();">
+      Learn a fun fact about me!
+    </button>
+    <p id="message-container"></p>
     </div>
   </div>
   
+  <h1>Translation</h1>
+    <p>Type a message and select a language, then click submit to translate it.</p>
+
+    <textarea id="text"></textarea>
+
+    <select id="language">
+      <option value="es">English</option>
+      <option value="zh">Chinese</option>
+      <option value="es">Spanish</option>
+      <option value="hi">Hindi</option>
+      <option value="ar">Arabic</option>
+    </select>
+
+    <button onclick="requestTranslation();">Translate</button>
+
+    <hr/>
+    <div id="result"></div>
   
 <!-- End page content -->
 </div>
