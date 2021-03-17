@@ -13,16 +13,17 @@
 // limitations under the License.
 
 /**
- * Adds a random greeting to the page.
+ * Adds a random message to the page.
  */
-function addRandomGreeting() {
-  const greetings =
-      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
 
-  // Pick a random greeting.
-  const greeting = greetings[Math.floor(Math.random() * greetings.length)];
+function message() {
+  const messages =
+      ['I have owned 10 birds!', 'I have held over 10 different jobs positions on campus!', 'I love taro bubble milk tea!', 'I hope to travel around the world!', 'I have a cute pomsky named Toby!'];
+
+  // Pick a random message.
+  const message = messages[Math.floor(Math.random() * messages.length)];
 
   // Add it to the page.
-  const greetingContainer = document.getElementById('greeting-container');
-  greetingContainer.innerText = greeting;
+  const messageContainer = document.getElementById('message-container');
+  messageContainer.innerText = message;
 }
